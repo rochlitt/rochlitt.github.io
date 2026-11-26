@@ -165,11 +165,17 @@ section{padding:88px 0 0}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:13px;font-weight:500;padding:5px 11px;border-radius:999px;background:var(--chip-bg);color:var(--ink-2);border:1px solid var(--line)}
 details.mais{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
-details.mais summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:var(--brand-text)}
+details.mais summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:var(--brand-text);padding:6px 10px;margin-left:-10px;border-radius:999px;transition:background .15s}
+details.mais summary:hover{background:color-mix(in srgb,var(--brand) 9%,transparent)}
+details.mais .txt-fechar{display:none}
+details.mais.aberto .txt-abrir{display:none}
+details.mais.aberto .txt-fechar{display:inline}
 details.mais summary::-webkit-details-marker{display:none}
-details.mais summary .icon{width:16px;height:16px;transition:transform .2s}
-details.mais[open] summary .icon{transform:rotate(180deg)}
-.mais-corpo{display:grid;gap:12px;margin-top:12px;font-size:15px;color:var(--ink-2)}
+details.mais summary .icon{width:16px;height:16px;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+details.mais.aberto summary .icon{transform:rotate(180deg)}
+.mais-corpo{display:grid;gap:12px;padding-top:12px;font-size:15px;color:var(--ink-2);overflow:hidden}
+.mais-corpo>div{transition:opacity .3s ease,transform .3s ease}
+.mais-corpo.entrando>div{opacity:0;transform:translateY(-6px)}
 .mais-corpo h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
 .mais-corpo ul{margin:0;padding-left:18px}
 .mais-corpo li{margin-bottom:4px}
@@ -324,7 +330,7 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
           </ul>
           <div class="chips"><span class="chip">JavaScript</span><span class="chip">Google Apps Script</span><span class="chip">Node.js</span><span class="chip">HTML/CSS</span><span class="chip">Git</span></div>
           <details class="mais">
-            <summary>Ver detalhes <svg class="icon" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span class="txt-abrir">Ver detalhes</span><span class="txt-fechar">Ocultar detalhes</span><svg class="icon" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
             <div class="mais-corpo">
               <div><h4>Problema</h4><p>A escola recebia o modelo em Word ou Excel para preencher, e o documento podia sair diferente do modelo oficial.</p></div>
               <div><h4>O que eu fiz</h4><ul>
@@ -332,7 +338,8 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
                 <li>Fluxo de envio, análise pelo inspetor do setor, devolução e assinatura eletrônica.</li>
                 <li>Validação pública dos documentos por código e QR Code gerado no próprio sistema.</li>
                 <li>Simulador local que roda o servidor real, para testar antes de publicar.</li></ul></div>
-              <div><h4>Resultado</h4><p>No ar desde novembro de 2026 para 101 escolas e 27 setores de inspeção.</p></div>
+              <div><h4>Resultado</h4><p>No ar desde novembro de 2026 para as 101 escolas estaduais da regional e 27 setores de inspeção.</p></div>
+              <div><h4>Próximo passo</h4><p>Atender também as escolas municipais e particulares.</p></div>
             </div>
           </details>
         </div>
@@ -362,7 +369,7 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
           </ul>
           <div class="chips"><span class="chip">JavaScript</span><span class="chip">Google Apps Script</span><span class="chip">Google Drive</span><span class="chip">Node.js</span><span class="chip">Git</span></div>
           <details class="mais">
-            <summary>Ver detalhes <svg class="icon" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <summary><span class="txt-abrir">Ver detalhes</span><span class="txt-fechar">Ocultar detalhes</span><svg class="icon" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
             <div class="mais-corpo">
               <div><h4>Problema</h4><p>Uma análise podia levar dias ou semanas, e às vezes a escola até esquecia o processo.</p></div>
               <div><h4>O que eu fiz</h4><ul>
@@ -370,7 +377,8 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
                 <li>Redesenhei o portal das escolas e o painel da equipe, com quem precisa agir em destaque.</li>
                 <li>Script de implantação que roda os testes e compara o código no ar com o GitHub.</li>
                 <li>Teste de segurança que bloqueia a publicação se uma função ficar sem verificação de login.</li></ul></div>
-              <div><h4>Resultado</h4><p>441 escolas estaduais, municipais e particulares atendidas, com cerca de 400 calendários no sistema.</p></div>
+              <div><h4>Resultado</h4><p>441 escolas estaduais e municipais atendidas, com cerca de 400 calendários no sistema.</p></div>
+              <div><h4>Próximo passo</h4><p>Atender também as escolas particulares.</p></div>
             </div>
           </details>
         </div>
@@ -503,6 +511,27 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
   function marcar(){var y=scrollY+innerHeight*0.35, atual="";secoes.forEach(function(s){if(s.offsetTop<=y)atual=s.id;});
     links.forEach(function(a){a.classList.toggle("ativo",a.getAttribute("href")==="#"+atual);});}
   addEventListener("scroll",marcar,{passive:true}); marcar();
+
+  /* Abrir e fechar os detalhes com a altura animada (funciona também no Safari do iPhone). */
+  var calmo=matchMedia("(prefers-reduced-motion: reduce)");
+  document.querySelectorAll("details.mais").forEach(function(d){
+    var resumo=d.querySelector("summary"), corpo=d.querySelector(".mais-corpo"), anim=null;
+    function fim(aberto){anim=null;corpo.style.height="";d.classList.toggle("aberto",aberto);if(!aberto)d.open=false;}
+    resumo.addEventListener("click",function(e){
+      e.preventDefault();
+      var abrir=!d.classList.contains("aberto");
+      /* Fechado, o navegador ainda mede o conteúdo escondido: por isso a altura de partida é 0. */
+      var inicio=(d.open&&(anim||d.classList.contains("aberto")))?corpo.getBoundingClientRect().height:0;
+      if(anim){anim.cancel();anim=null;}
+      if(abrir){d.open=true;d.classList.add("aberto");}else{d.classList.remove("aberto");}
+      if(calmo.matches||!corpo.animate){fim(abrir);return;}
+      var alvo=abrir?corpo.scrollHeight:0;
+      if(abrir&&!inicio){corpo.classList.add("entrando");requestAnimationFrame(function(){requestAnimationFrame(function(){corpo.classList.remove("entrando");});});}
+      var pad=function(h){return Math.min(12,h)+"px";};
+      anim=corpo.animate([{height:inicio+"px",paddingTop:pad(inicio)},{height:alvo+"px",paddingTop:pad(alvo)}],{duration:abrir?340:260,easing:"cubic-bezier(.2,.7,.2,1)"});
+      anim.onfinish=function(){fim(abrir);};
+    });
+  });
 
   var itens=document.querySelectorAll(".surge");
   if("IntersectionObserver" in window){
