@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucas Rocha Rodrigues · Portfólio</title>
+<meta name="description" content="Portfólio de Lucas Rocha Rodrigues, desenvolvedor de software em Uberlândia: sistemas web em produção para escolas da rede de ensino.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f8fb; --surface:#ffffff; --surface-2:#eef2f7; --text:#102a43; --muted:#52667a;
+  --line:#dbe3ec; --brand:#0d3b66; --brand-2:#1d6fa5; --accent:#e0a526; --chip:#e7eef6; --chip-text:#1f4466;
+  --shadow:0 1px 2px rgba(16,42,67,.06),0 8px 24px rgba(16,42,67,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1520; --surface:#121e2b; --surface-2:#182636; --text:#e6edf5; --muted:#9fb0c2;
+    --line:#22344a; --brand:#7fb6e6; --brand-2:#9fcaf0; --accent:#f0c04f; --chip:#1b2c3f; --chip-text:#cfe0f1;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1520; --surface:#121e2b; --surface-2:#182636; --text:#e6edf5; --muted:#9fb0c2;
+  --line:#22344a; --brand:#7fb6e6; --brand-2:#9fcaf0; --accent:#f0c04f; --chip:#1b2c3f; --chip-text:#cfe0f1;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",system-ui,sans-serif;line-height:1.6;font-size:16px}
+a{color:var(--brand-2)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+@media (max-width:480px){.wrap{padding:0 16px}}
+
+/* topo */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font-weight:800;color:var(--text);text-decoration:none;letter-spacing:.3px}
+.logo span{color:var(--accent)}
+.menu{display:flex;gap:20px;align-items:center}
+.menu a{color:var(--muted);text-decoration:none;font-weight:500;font-size:15px}
+.menu a:hover{color:var(--text)}
+@media (max-width:640px){.menu a.opc{display:none}}
+
+/* abertura */
+.hero{padding-top:72px;padding-bottom:48px}
+.hero .ola{color:var(--brand-2);font-weight:600;margin:0 0 8px}
+.hero h1{font-size:clamp(34px,6vw,54px);line-height:1.1;margin:0 0 16px;letter-spacing:-.5px}
+.hero p.desc{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:680px;margin:0 0 28px}
+.botoes{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:15px;border:1px solid var(--line);color:var(--text);background:var(--surface)}
+.btn.prim{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .btn.prim{color:#0c1520}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.prim{color:#0c1520}}
+.btn svg{width:18px;height:18px}
+.numeros{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}
+.num{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.num b{display:block;font-size:28px;line-height:1.1;color:var(--brand)}
+.num span{color:var(--muted);font-size:14px}
+@media (max-width:760px){.numeros{grid-template-columns:repeat(2,1fr)}}
+
+/* seções */
+section{padding:40px 0}
+h2{font-size:28px;margin:0 0 6px;letter-spacing:-.3px}
+.sub{color:var(--muted);margin:0 0 28px}
+
+/* projetos */
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:28px;margin-bottom:24px}
+.proj-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.proj h3{font-size:22px;margin:0}
+.proj .papel{color:var(--muted);font-size:15px;margin:2px 0 0}
+.selo{font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--chip);color:var(--chip-text);white-space:nowrap}
+.selo.ok{background:color-mix(in srgb,#1a9b5a 16%,transparent);color:#1a7a48}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .selo.ok{color:#6fd39f}}
+:root[data-theme="dark"] .selo.ok{color:#6fd39f}
+.proj .resumo{margin:14px 0 18px;font-size:17px}
+.grade{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:820px){.grade{grid-template-columns:1fr}}
+.bloco h4{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--brand-2);margin:0 0 6px}
+.bloco p{margin:0 0 14px;color:var(--muted)}
+.bloco ul{margin:0 0 14px;padding-left:18px}
+.bloco li{margin:0 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{font-size:13px;padding:4px 10px;border-radius:8px;background:var(--surface-2);border:1px solid var(--line);color:var(--text)}
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.galeria.duas{grid-template-columns:repeat(2,1fr)}
+@media (max-width:640px){.galeria,.galeria.duas{grid-template-columns:1fr}}
+.galeria figure{margin:0}
+.galeria button{all:unset;cursor:zoom-in;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface-2);aspect-ratio:16/10;width:100%}
+.galeria button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.galeria img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .3s}
+.galeria button:hover img{transform:scale(1.03)}
+.galeria figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+.nota{font-size:13px;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+
+/* competências */
+.comp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:760px){.comp{grid-template-columns:1fr}}
+.comp>div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.comp h4{margin:0 0 10px;font-size:15px}
+
+/* contato */
+.contato{background:var(--brand);color:#fff;border-radius:18px;padding:32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+:root[data-theme="dark"] .contato{background:var(--surface-2);color:var(--text)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .contato{background:var(--surface-2);color:var(--text)}}
+.contato h2{margin:0 0 4px}
+.contato p{margin:0;opacity:.85}
+.contato .btn{background:#fff;color:#0d3b66;border-color:#fff}
+footer{padding:28px 0 40px;color:var(--muted);font-size:14px;text-align:center}
+
+/* ampliar imagem */
+dialog{border:none;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
+dialog::backdrop{background:rgba(5,12,20,.8)}
+dialog img{max-width:100%;max-height:88vh;display:block;border-radius:10px}
+dialog button{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+.tema{all:unset;cursor:pointer;width:36px;height:36px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);color:var(--muted)}
+.tema svg{width:18px;height:18px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#inicio">Lucas Rocha<span>.</span></a>
+    <div class="menu">
+      <a href="#projetos">Projetos</a>
+      <a class="opc" href="#competencias">Competências</a>
+      <a href="#contato">Contato</a>
+      <button class="tema" id="tema" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="inicio">
+<div class="wrap hero">
+  <p class="ola">Desenvolvedor de Software · Uberlândia, MG</p>
+  <h1>Lucas Rocha Rodrigues</h1>
+  <p class="desc">Estudante de Sistemas de Informação e estagiário de TI na Superintendência Regional de Ensino de Uberlândia. Crio e mantenho sistemas web em produção usados por mais de 400 escolas.</p>
+  <div class="botoes">
+    <a class="btn prim" href="#projetos">Ver projetos</a>
+    <a class="btn" href="curriculo.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
+      Currículo (PDF)</a>
+    <a class="btn" href="https://www.linkedin.com/in/rochlucas" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/rochlitt" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div class="numeros">
+    <div class="num"><b>441</b><span>escolas atendidas pelo SISCAL</span></div>
+    <div class="num"><b>101</b><span>escolas estaduais no SISMAC</span></div>
+    <div class="num"><b>90+</b><span>versões publicadas em produção</span></div>
+    <div class="num"><b>1.000+</b><span>verificações em testes automatizados</span></div>
+  </div>
+</div>
+
+<section id="projetos">
+<div class="wrap">
+  <h2>Projetos</h2>
+  <p class="sub">Problema, o que eu fiz e o resultado de cada um.</p>
+
+  <article class="proj">
+    <div class="proj-topo">
+      <div>
+        <h3>SISMAC · Sistema de Matrizes Curriculares</h3>
+        <p class="papel">Criado do zero · SRE Uberlândia · 2026</p>
+      </div>
+      <span class="selo ok">Em produção</span>
+    </div>
+    <p class="resumo">Sistema web em que as escolas estaduais escolhem o modelo oficial de matriz curricular, preenchem o cabeçalho, enviam para análise e assinam eletronicamente.</p>
+    <div class="grade">
+      <div class="bloco">
+        <h4>Problema</h4>
+        <p>A escola recebia o modelo em Word ou Excel para preencher, e o documento podia sair diferente do modelo oficial.</p>
+        <h4>O que eu fiz</h4>
+        <ul>
+          <li>Portal das escolas e painel da equipe, com 3 perfis de acesso e permissões conferidas no servidor.</li>
+          <li>Importador em Node.js que converteu 236 modelos oficiais em Word e Excel em dados, sem bibliotecas externas.</li>
+          <li>Autenticação com hash e sal, limite de tentativas e login por código no e-mail institucional.</li>
+          <li>Validação pública dos documentos assinados por código e QR Code gerado no próprio sistema.</li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <h4>Resultado</h4>
+        <ul>
+          <li>No ar desde novembro de 2026 para 101 escolas estaduais e 27 setores de inspeção.</li>
+          <li>A escola só edita o cabeçalho: o documento é sempre igual ao modelo oficial.</li>
+          <li>Mais de mil verificações em testes automatizados e um simulador local que roda o servidor real.</li>
+        </ul>
+        <h4>Tecnologias</h4>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">Google Apps Script</span><span class="chip">Node.js</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Google Sheets</span><span class="chip">Git</span></div>
+      </div>
+    </div>
+    <div class="galeria">
+      <figure><button data-img="img/sismac-modelo.webp"><img src="img/sismac-modelo.webp" alt="SISMAC: modelo indicado à escola, com a carga horária" loading="lazy"></button><figcaption>Modelo indicado à escola</figcaption></figure>
+      <figure><button data-img="img/sismac-analise.webp"><img src="img/sismac-analise.webp" alt="SISMAC: análise da matriz pelo inspetor" loading="lazy"></button><figcaption>Análise da matriz</figcaption></figure>
+      <figure><button data-img="img/sismac-visao.webp"><img src="img/sismac-visao.webp" alt="SISMAC: visão geral do inspetor" loading="lazy"></button><figcaption>Visão geral do inspetor</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div class="proj-topo">
+      <div>
+        <h3>SISCAL · Sistema de Calendários Escolares</h3>
+        <p class="papel">Evolução da versão 1.0 para a 2.0 · SRE Uberlândia · 2026</p>
+      </div>
+      <span class="selo ok">Em produção</span>
+    </div>
+    <p class="resumo">Sistema em que escolas estaduais, municipais e particulares enviam o calendário escolar para análise e homologação da SRE.</p>
+    <div class="grade">
+      <div class="bloco">
+        <h4>Problema</h4>
+        <p>Uma análise podia levar dias ou semanas, e às vezes a escola até esquecia o processo.</p>
+        <h4>O que eu fiz</h4>
+        <ul>
+          <li>Reorganizei o servidor em módulos e redesenhei o portal das escolas e o painel da equipe.</li>
+          <li>Criei o preenchimento digital do calendário, com conferência automática dos dias letivos e das datas.</li>
+          <li>Fluxo de análise, devolução, assinatura e homologação, com lembretes às escolas pendentes e PDF com QR Code.</li>
+          <li>Script de implantação que roda os testes e compara o código no ar com o GitHub antes de publicar.</li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <h4>Resultado</h4>
+        <ul>
+          <li>441 escolas atendidas e cerca de 400 calendários no sistema.</li>
+          <li>Cada etapa acompanhada no painel, com quem precisa agir em destaque.</li>
+          <li>Mais de 90 versões publicadas e 30 arquivos de testes, incluindo um teste de segurança que bloqueia a publicação.</li>
+        </ul>
+        <h4>Tecnologias</h4>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">Google Apps Script</span><span class="chip">Google Drive</span><span class="chip">Google Sheets</span><span class="chip">Node.js</span><span class="chip">Git</span></div>
+      </div>
+    </div>
+    <div class="galeria">
+      <figure><button data-img="img/siscal-painel.webp"><img src="img/siscal-painel.webp" alt="SISCAL: visão geral do painel da equipe" loading="lazy"></button><figcaption>Painel da equipe</figcaption></figure>
+      <figure><button data-img="img/siscal-analise.webp"><img src="img/siscal-analise.webp" alt="SISCAL: análise do calendário com conferência automática" loading="lazy"></button><figcaption>Análise com conferência automática</figcaption></figure>
+      <figure><button data-img="img/siscal-escola.webp"><img src="img/siscal-escola.webp" alt="SISCAL: área da escola com as etapas do calendário" loading="lazy"></button><figcaption>Área da escola</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div class="proj-topo">
+      <div>
+        <h3>Meu Plano UFU</h3>
+        <p class="papel">Projeto pessoal · 2026</p>
+      </div>
+      <span class="selo">Em desenvolvimento</span>
+    </div>
+    <p class="resumo">Painel de estudos para o vestibular e a transferência da UFU, com lembretes de trabalhos e provas da faculdade.</p>
+    <div class="grade">
+      <div class="bloco">
+        <h4>O que ele faz</h4>
+        <ul>
+          <li>Refaz o cronograma todo dia a partir dos pesos do curso, do desempenho por matéria, das revisões e dos prazos, e explica cada decisão.</li>
+          <li>Cobre os 684 subtópicos do edital e os 46 cursos do Quadro de Pesos 2027-2.</li>
+          <li>Na transferência, confere pelas tabelas do edital se o curso atual dá direito a concorrer.</li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <h4>Como foi feito</h4>
+        <ul>
+          <li>Funciona sem internet e sem instalação, com dados no navegador e backup em JSON.</li>
+          <li>Testes do motor de planejamento em Node.js e de todas as telas com Playwright.</li>
+        </ul>
+        <h4>Tecnologias</h4>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Canvas</span><span class="chip">Node.js</span><span class="chip">Playwright</span></div>
+      </div>
+    </div>
+    <div class="galeria duas">
+      <figure><button data-img="img/ufu-inicio.webp"><img src="img/ufu-inicio.webp" alt="Meu Plano UFU: tela inicial no tema claro" loading="lazy"></button><figcaption>Tela inicial</figcaption></figure>
+      <figure><button data-img="img/ufu-hoje.webp"><img src="img/ufu-hoje.webp" alt="Meu Plano UFU: cronograma do dia no tema escuro" loading="lazy"></button><figcaption>Cronograma do dia</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div class="proj-topo">
+      <div>
+        <h3>SEAR · Sistema Eletrônico de Atendimento Remoto</h3>
+        <p class="papel">Infraestrutura em nuvem · SRE Uberlândia · 2026</p>
+      </div>
+      <span class="selo ok">Em produção</span>
+    </div>
+    <p class="resumo">Administração da máquina virtual no Microsoft Azure que hospeda o domínio da SRE e o SEAR, sistema usado pelas escolas municipais e particulares e pelos analistas da SRE.</p>
+    <div class="grade">
+      <div class="bloco">
+        <h4>O que eu fiz</h4>
+        <ul>
+          <li>Configuração de endereço IP, portas e regras de rede, DNS e acesso ao servidor.</li>
+        </ul>
+      </div>
+      <div class="bloco">
+        <h4>Tecnologias</h4>
+        <div class="chips"><span class="chip">Microsoft Azure</span><span class="chip">Máquinas virtuais</span><span class="chip">DNS</span><span class="chip">Redes</span></div>
+      </div>
+    </div>
+  </article>
+
+  <p class="nota">SISMAC, SISCAL e SEAR são sistemas de um órgão público: o código não é público e as telas usam escolas e pessoas fictícias.</p>
+</div>
+</section>
+
+<section id="competencias">
+<div class="wrap">
+  <h2>Competências</h2>
+  <p class="sub">O que eu uso no dia a dia.</p>
+  <div class="comp">
+    <div><h4>Desenvolvimento</h4><div class="chips"><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">SQL</span><span class="chip">APIs RESTful</span><span class="chip">Java</span></div></div>
+    <div><h4>Ferramentas</h4><div class="chips"><span class="chip">Git e GitHub</span><span class="chip">SQL Server</span><span class="chip">Microsoft Azure</span><span class="chip">Google Apps Script</span><span class="chip">Playwright</span><span class="chip">Scrum</span></div></div>
+    <div><h4>Formação</h4><p style="margin:0;color:var(--muted)">Bacharelado em Sistemas de Informação (UNIUBE, até 2028) e Técnico em Automação Industrial (SENAI). Inglês avançado (C1).</p></div>
+  </div>
+</div>
+</section>
+
+<section id="contato">
+<div class="wrap">
+  <div class="contato">
+    <div>
+      <h2>Vamos conversar?</h2>
+      <p>Procuro estágio ou vaga júnior em desenvolvimento de software.</p>
+    </div>
+    <div class="botoes">
+      <a class="btn" href="mailto:lucasrocharxd@gmail.com">lucasrocharxd@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/rochlucas" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>© 2026 Lucas Rocha Rodrigues</footer>
+
+<dialog id="zoom"><button type="button" id="fechar" aria-label="Fechar">Fechar</button><img alt=""></dialog>
+
+<script>
+(function(){
+  var raiz=document.documentElement, chave="tema-portfolio";
+  try{var salvo=localStorage.getItem(chave); if(salvo) raiz.dataset.theme=salvo;}catch(e){}
+  document.getElementById("tema").addEventListener("click",function(){
+    var escuro=raiz.dataset.theme? raiz.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    raiz.dataset.theme=escuro?"light":"dark";
+    try{localStorage.setItem(chave,raiz.dataset.theme);}catch(e){}
+  });
+  var dlg=document.getElementById("zoom"), img=dlg.querySelector("img");
+  document.querySelectorAll(".galeria button").forEach(function(b){
+    b.addEventListener("click",function(){img.src=b.dataset.img;img.alt=b.querySelector("img").alt;dlg.showModal();});
+  });
+  document.getElementById("fechar").addEventListener("click",function(){dlg.close();});
+  dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close();});
+})();
+</script>
+</body>
+</html>
