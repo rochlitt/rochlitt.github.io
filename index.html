@@ -115,8 +115,8 @@ img{max-width:100%;display:block}
 .janela-barra i:nth-child(1){background:#f87171}.janela-barra i:nth-child(2){background:#fbbf24}.janela-barra i:nth-child(3){background:#4ade80}
 .janela-barra span{margin-left:10px;font-size:11px;color:var(--muted);font-weight:500}
 .janela img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top left;background:#fff}
-.vitrine .mini{position:absolute;left:0;bottom:0;width:46%;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);border:4px solid var(--glass-strong)}
-.vitrine .mini img{aspect-ratio:1/0.9;object-fit:cover;object-position:top;background:#fff}
+.vitrine .mini{position:absolute;left:0;bottom:0;width:50%;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);border:4px solid var(--glass-strong)}
+.vitrine .mini img{aspect-ratio:16/10;object-fit:cover;object-position:top left;background:#fff}
 .selo{position:absolute;right:-6px;bottom:22px;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;box-shadow:var(--shadow)}
 .selo b{display:block;font-size:20px;line-height:1;color:var(--ink)}
 .selo span{font-size:12px;color:var(--muted)}
@@ -141,12 +141,18 @@ section{padding:88px 0 0}
 .cab p{color:var(--muted);margin-top:10px;font-size:17px}
 
 /* ---------- Projetos ---------- */
-.projeto{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:28px;border-radius:var(--r-xl);box-shadow:var(--shadow);margin-bottom:28px}
+.projeto{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start;padding:28px;border-radius:var(--r-xl);box-shadow:var(--shadow);margin-bottom:28px}
 .projeto.inverso{grid-template-columns:1fr 1.1fr}
 .projeto.inverso .proj-midia{order:2}
 @media (max-width:960px){.projeto,.projeto.inverso{grid-template-columns:1fr;gap:24px;padding:20px}.projeto.inverso .proj-midia{order:0}}
 .proj-midia .janela img{aspect-ratio:16/10.5}
-.miniaturas{display:flex;gap:8px;margin-top:12px}
+.miniaturas{display:flex;gap:8px;margin-top:12px;max-height:60px;transition:max-height .4s cubic-bezier(.2,.7,.2,1),opacity .25s ease,margin-top .4s cubic-bezier(.2,.7,.2,1)}
+.projeto.expandido .miniaturas{max-height:0;opacity:0;margin-top:0;pointer-events:none}
+.extras{display:grid;gap:16px;height:0;overflow:hidden}
+.extras>.ampliar:first-child{margin-top:16px}
+.projeto.expandido .extras{height:auto}
+.extras .janela img{aspect-ratio:16/9}
+@media (max-width:960px){.extras{display:none}.projeto.expandido .miniaturas{max-height:60px;opacity:1;margin-top:12px;pointer-events:auto}}
 .miniaturas button{all:unset;cursor:pointer;width:72px;height:48px;border-radius:8px;overflow:hidden;border:2px solid transparent;opacity:.65;transition:opacity .15s,border-color .15s;background:#fff}
 .miniaturas button img{width:100%;height:100%;object-fit:cover;object-position:top}
 .miniaturas button[aria-pressed="true"],.miniaturas button:hover{opacity:1;border-color:var(--brand)}
@@ -292,10 +298,10 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
 
       <div class="vitrine" aria-hidden="true">
         <div class="janela">
-          <div class="janela-barra"><i></i><i></i><i></i><span>SISCAL · Painel da equipe</span></div>
-          <img src="img/siscal-painel.webp" alt="">
+          <div class="janela-barra"><i></i><i></i><i></i><span>SISCAL · Calendário escolar</span></div>
+          <img src="img/siscal-calendario.webp" alt="">
         </div>
-        <div class="mini"><img src="img/sismac-visao.webp" alt=""></div>
+        <div class="mini"><img src="img/sismac-escola-recorte.webp" alt=""></div>
         <div class="selo glass">
           <span class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
           <div><b>3 sistemas</b><span>em produção</span></div>
@@ -322,13 +328,16 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
       <article class="projeto glass surge">
         <div class="proj-midia" data-galeria>
           <button class="ampliar" type="button" aria-label="Ampliar a tela">
-            <div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span>SISMAC</span></div>
-              <img src="img/sismac-analise.webp" alt="SISMAC: análise da matriz pelo inspetor" loading="lazy"></div>
+            <div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span data-titulo-janela>SISMAC · Análise da matriz</span></div><img src="img/sismac-analise.webp" alt="SISMAC: análise da matriz pelo(a) inspetor(a), com o documento" loading="lazy"></div>
           </button>
           <div class="miniaturas">
-            <button type="button" aria-pressed="true" data-src="img/sismac-analise.webp" data-alt="SISMAC: análise da matriz pelo inspetor"><img src="img/sismac-analise.webp" alt="Tela 1: análise da matriz" loading="lazy"></button>
-            <button type="button" aria-pressed="false" data-src="img/sismac-modelo.webp" data-alt="SISMAC: modelo indicado à escola, com a carga horária"><img src="img/sismac-modelo.webp" alt="Tela 2: modelo indicado à escola" loading="lazy"></button>
-            <button type="button" aria-pressed="false" data-src="img/sismac-visao.webp" data-alt="SISMAC: visão geral do inspetor"><img src="img/sismac-visao.webp" alt="Tela 3: visão geral do inspetor" loading="lazy"></button>
+            <button type="button" aria-pressed="true" data-src="img/sismac-analise.webp" data-alt="SISMAC: análise da matriz pelo(a) inspetor(a), com o documento" data-titulo="SISMAC · Análise da matriz"><img src="img/sismac-analise.webp" alt="Tela 1: análise da matriz" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-src="img/sismac-escola.webp" data-alt="SISMAC: área da escola com as matrizes por situação" data-titulo="SISMAC · Área da escola"><img src="img/sismac-escola.webp" alt="Tela 2: área da escola" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-src="img/sismac-concluida.webp" data-alt="SISMAC: matriz concluída e assinada eletronicamente" data-titulo="SISMAC · Matriz assinada"><img src="img/sismac-concluida.webp" alt="Tela 3: matriz assinada" loading="lazy"></button>
+          </div>
+          <div class="extras" inert>
+            <button class="ampliar" type="button" aria-label="Ampliar: Área da escola"><div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span>SISMAC · Área da escola</span></div><img src="img/sismac-escola.webp" alt="SISMAC: área da escola com as matrizes por situação" loading="lazy"></div></button>
+            <button class="ampliar" type="button" aria-label="Ampliar: Matriz assinada"><div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span>SISMAC · Matriz assinada</span></div><img src="img/sismac-concluida.webp" alt="SISMAC: matriz concluída e assinada eletronicamente" loading="lazy"></div></button>
           </div>
         </div>
         <div>
@@ -361,13 +370,16 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
       <article class="projeto inverso glass surge">
         <div class="proj-midia" data-galeria>
           <button class="ampliar" type="button" aria-label="Ampliar a tela">
-            <div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span>SISCAL</span></div>
-              <img src="img/siscal-painel.webp" alt="SISCAL: painel da equipe" loading="lazy"></div>
+            <div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span data-titulo-janela>SISCAL · Preenchimento do calendário</span></div><img src="img/siscal-calendario.webp" alt="SISCAL: preenchimento digital do calendário com a contagem dos dias letivos" loading="lazy"></div>
           </button>
           <div class="miniaturas">
-            <button type="button" aria-pressed="true" data-src="img/siscal-painel.webp" data-alt="SISCAL: painel da equipe"><img src="img/siscal-painel.webp" alt="Tela 1: painel da equipe" loading="lazy"></button>
-            <button type="button" aria-pressed="false" data-src="img/siscal-analise.webp" data-alt="SISCAL: análise do calendário com conferência automática"><img src="img/siscal-analise.webp" alt="Tela 2: análise com conferência automática" loading="lazy"></button>
-            <button type="button" aria-pressed="false" data-src="img/siscal-escola.webp" data-alt="SISCAL: área da escola com as etapas do calendário"><img src="img/siscal-escola.webp" alt="Tela 3: área da escola" loading="lazy"></button>
+            <button type="button" aria-pressed="true" data-src="img/siscal-calendario.webp" data-alt="SISCAL: preenchimento digital do calendário com a contagem dos dias letivos" data-titulo="SISCAL · Preenchimento do calendário"><img src="img/siscal-calendario.webp" alt="Tela 1: preenchimento do calendário" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-src="img/siscal-analise.webp" data-alt="SISCAL: análise do calendário com conferência automática" data-titulo="SISCAL · Análise com conferência automática"><img src="img/siscal-analise.webp" alt="Tela 2: análise com conferência automática" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-src="img/siscal-painel.webp" data-alt="SISCAL: visão geral do painel da equipe" data-titulo="SISCAL · Painel da equipe"><img src="img/siscal-painel.webp" alt="Tela 3: painel da equipe" loading="lazy"></button>
+          </div>
+          <div class="extras" inert>
+            <button class="ampliar" type="button" aria-label="Ampliar: Análise com conferência automática"><div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span>SISCAL · Análise com conferência automática</span></div><img src="img/siscal-analise.webp" alt="SISCAL: análise do calendário com conferência automática" loading="lazy"></div></button>
+            <button class="ampliar" type="button" aria-label="Ampliar: Painel da equipe"><div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span>SISCAL · Painel da equipe</span></div><img src="img/siscal-painel.webp" alt="SISCAL: visão geral do painel da equipe" loading="lazy"></div></button>
           </div>
         </div>
         <div>
@@ -400,12 +412,11 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
       <article class="projeto glass surge">
         <div class="proj-midia" data-galeria>
           <button class="ampliar" type="button" aria-label="Ampliar a tela">
-            <div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span>Meu Plano UFU</span></div>
-              <img src="img/ufu-inicio.webp" alt="Meu Plano UFU: tela inicial" loading="lazy"></div>
+            <div class="janela"><div class="janela-barra"><i></i><i></i><i></i><span data-titulo-janela>Meu Plano UFU · Tela inicial</span></div><img src="img/ufu-inicio.webp" alt="Meu Plano UFU: tela inicial" loading="lazy"></div>
           </button>
           <div class="miniaturas">
-            <button type="button" aria-pressed="true" data-src="img/ufu-inicio.webp" data-alt="Meu Plano UFU: tela inicial"><img src="img/ufu-inicio.webp" alt="Tela 1: tela inicial" loading="lazy"></button>
-            <button type="button" aria-pressed="false" data-src="img/ufu-hoje.webp" data-alt="Meu Plano UFU: cronograma do dia no tema escuro"><img src="img/ufu-hoje.webp" alt="Tela 2: cronograma do dia" loading="lazy"></button>
+            <button type="button" aria-pressed="true" data-src="img/ufu-inicio.webp" data-alt="Meu Plano UFU: tela inicial" data-titulo="Meu Plano UFU · Tela inicial"><img src="img/ufu-inicio.webp" alt="Tela 1: tela inicial" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-src="img/ufu-hoje.webp" data-alt="Meu Plano UFU: cronograma do dia no tema escuro" data-titulo="Meu Plano UFU · Cronograma do dia"><img src="img/ufu-hoje.webp" alt="Tela 2: cronograma do dia" loading="lazy"></button>
           </div>
         </div>
         <div>
@@ -516,11 +527,14 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
     botoes.forEach(function(b){
       b.addEventListener("click",function(){
         principal.src=b.getAttribute("data-src"); principal.alt=b.getAttribute("data-alt");
+        var tit=g.querySelector("[data-titulo-janela]"); if(tit) tit.textContent=b.getAttribute("data-titulo");
         botoes.forEach(function(o){o.setAttribute("aria-pressed",o===b?"true":"false");});
       });
     });
-    g.querySelector(".ampliar").addEventListener("click",function(){
-      zImg.src=principal.src; zImg.alt=principal.alt; zLeg.textContent=principal.alt; dlg.showModal();
+  });
+  document.querySelectorAll(".ampliar").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var im=btn.querySelector("img"); zImg.src=im.src; zImg.alt=im.alt; zLeg.textContent=im.alt; dlg.showModal();
     });
   });
   document.getElementById("fechar").addEventListener("click",function(){dlg.close();});
@@ -547,7 +561,28 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
   addEventListener("scroll",marcar,{passive:true}); marcar();
 
   /* Abrir e fechar os detalhes com a altura animada (funciona também no Safari do iPhone). */
-  var calmo=matchMedia("(prefers-reduced-motion: reduce)");
+  var calmo=matchMedia("(prefers-reduced-motion: reduce)"), largo=matchMedia("(min-width: 961px)");
+  var SUAVE="cubic-bezier(.2,.7,.2,1)";
+  /* Com os detalhes abertos, as outras telas do projeto descem uma embaixo da outra, no espaço ao lado do texto. */
+  function expandirGaleria(d,abrir){
+    var art=d.closest(".projeto"), ex=art&&art.querySelector(".extras");
+    if(!ex) return;
+    var g=art.querySelector("[data-galeria]"), b1=g.querySelector(".miniaturas button");
+    if(abrir&&b1&&b1.getAttribute("aria-pressed")!=="true") b1.click();
+    var inicio=ex.getBoundingClientRect().height;
+    if(ex._anim){ex._anim.cancel();ex._anim=null;}
+    art.classList.toggle("expandido",abrir);
+    if(abrir) ex.removeAttribute("inert"); else ex.setAttribute("inert","");
+    if(calmo.matches||!largo.matches||!ex.animate) return;
+    var alvo=abrir?ex.scrollHeight:0;
+    ex._anim=ex.animate([{height:inicio+"px"},{height:alvo+"px"}],{duration:abrir?560:380,easing:SUAVE});
+    ex._anim.onfinish=function(){ex._anim=null;};
+    var filhos=[].slice.call(ex.children);
+    filhos.forEach(function(c,i){
+      if(abrir) c.animate([{opacity:0,transform:"translateY(-18px) scale(.97)"},{opacity:1,transform:"none"}],{duration:460,delay:140+i*120,easing:SUAVE,fill:"backwards"});
+      else c.animate([{opacity:1,transform:"none"},{opacity:0,transform:"translateY(-12px) scale(.97)"}],{duration:380,easing:SUAVE});
+    });
+  }
   document.querySelectorAll("details.mais").forEach(function(d){
     var resumo=d.querySelector("summary"), corpo=d.querySelector(".mais-corpo"), anim=null;
     function fim(aberto){anim=null;corpo.style.height="";d.classList.toggle("aberto",aberto);if(!aberto)d.open=false;}
@@ -558,6 +593,7 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
       var inicio=(d.open&&(anim||d.classList.contains("aberto")))?corpo.getBoundingClientRect().height:0;
       if(anim){anim.cancel();anim=null;}
       if(abrir){d.open=true;d.classList.add("aberto");}else{d.classList.remove("aberto");}
+      expandirGaleria(d,abrir);
       if(calmo.matches||!corpo.animate){fim(abrir);return;}
       var alvo=abrir?corpo.scrollHeight:0;
       if(abrir&&!inicio){corpo.classList.add("entrando");requestAnimationFrame(function(){requestAnimationFrame(function(){corpo.classList.remove("entrando");});});}
