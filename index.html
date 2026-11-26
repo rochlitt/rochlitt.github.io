@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lucas Rocha Rodrigues · Desenvolvedor de Software</title>
-<meta name="description" content="Lucas Rocha Rodrigues, desenvolvedor de software em Uberlândia. Sistemas web em produção usados por mais de 400 escolas. Aberto a estágio ou vaga júnior em TI.">
+<meta name="description" content="Lucas Rocha Rodrigues, desenvolvedor de software em Uberlândia. Sistemas web em produção usados por mais de 400 escolas. Disponível para estágio ou vaga júnior em TI.">
 <meta property="og:title" content="Lucas Rocha Rodrigues · Desenvolvedor de Software">
-<meta property="og:description" content="Sistemas web em produção usados por mais de 400 escolas. Aberto a estágio ou vaga júnior em TI.">
+<meta property="og:description" content="Sistemas web em produção usados por mais de 400 escolas. Disponível para estágio ou vaga júnior em TI.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,9 +96,9 @@ img{max-width:100%;display:block}
 
 /* ---------- Abertura ---------- */
 .hero{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;padding:56px 0 40px}
-.disponivel{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 10px;border-radius:999px;font-size:13px;font-weight:600;color:var(--green);background:var(--green-bg);border:1px solid color-mix(in srgb,var(--green) 25%,transparent)}
-.ponto{width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 0 currentColor;animation:pulsa 2.4s infinite}
-@keyframes pulsa{0%{box-shadow:0 0 0 0 color-mix(in srgb,currentColor 50%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.sobre-titulo{display:flex;align-items:center;gap:12px;margin:0;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-text)}
+.sobre-titulo::before{content:"";width:28px;height:2px;border-radius:2px;background:currentColor;flex:none}
+@media (max-width:480px){.sobre-titulo{font-size:11px;letter-spacing:.07em;gap:10px}.sobre-titulo::before{width:20px}}
 .hero h1{font-size:clamp(38px,5.6vw,62px);line-height:1.04;letter-spacing:-.035em;font-weight:800;margin:20px 0 6px}
 .cargo{font-size:clamp(18px,2.2vw,22px);font-weight:600;color:var(--brand-text);margin-bottom:16px}
 .hero .lead{font-size:18px;color:var(--ink-2);max-width:540px}
@@ -250,7 +250,7 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
 /* Entrada suave ao rolar (só com JavaScript e sem "menos movimento") */
 .js .surge{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .js .surge.visto{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .surge{opacity:1;transform:none;transition:none}.ponto{animation:none}.btn:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .surge{opacity:1;transform:none;transition:none}.btn:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -279,7 +279,7 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
   <div class="wrap">
     <div class="hero">
       <div>
-        <span class="disponivel"><span class="ponto"></span>Aberto a estágio ou vaga júnior em TI</span>
+        <p class="sobre-titulo">Disponível para estágio ou vaga júnior em TI</p>
         <h1>Lucas Rocha Rodrigues</h1>
         <p class="cargo">Desenvolvedor de Software · Web e Back-end</p>
         <p class="lead">Estagiário de TI na Superintendência Regional de Ensino de Uberlândia, onde crio e mantenho <strong>sistemas web em produção usados por mais de 400 escolas</strong>. Estudante de Sistemas de Informação.</p>
