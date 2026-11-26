@@ -223,6 +223,19 @@ dialog::backdrop{background:rgba(8,14,24,.6);backdrop-filter:blur(8px);-webkit-b
 dialog img{max-width:100%;max-height:86vh;border-radius:14px;box-shadow:var(--shadow-lg);background:#fff}
 dialog figcaption{color:#fff;text-align:center;font-size:14px;margin-top:10px}
 dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;border-radius:50%;border:none;background:#fff;color:#0f172a;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow)}
+#contatoDlg{background:var(--glass-strong);border:1px solid var(--glass-line);border-radius:22px;padding:28px;width:min(440px,92vw);color:var(--ink);box-shadow:var(--shadow-lg);backdrop-filter:saturate(170%) blur(18px);-webkit-backdrop-filter:saturate(170%) blur(18px)}
+#contatoDlg h2{font-size:22px;letter-spacing:-.02em}
+#contatoDlg .dlg-sub{color:var(--muted);font-size:14px;margin:4px 0 18px}
+.email-caixa{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.email-caixa span{flex:1;min-width:0;font-weight:600;font-size:15px;overflow-wrap:anywhere}
+.email-caixa .btn{height:38px;padding:0 14px;font-size:14px;border-radius:10px}
+.opcoes{display:grid;gap:8px;margin-top:14px}
+.opcao{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;transition:border-color .15s,transform .15s}
+.opcao:hover{border-color:var(--line-strong);transform:translateY(-1px)}
+.opcao small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.opcao .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--brand-50);color:var(--brand-text);flex:none}
+.opcao .seta{margin-left:auto;color:var(--muted)}
+#contatoDlg .fechar{top:12px;right:12px;width:34px;height:34px;background:var(--chip-bg);color:var(--ink);box-shadow:none}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;padding:10px 16px;border-radius:12px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;transition:.25s;pointer-events:none;z-index:60}
 .toast.ver{opacity:1;transform:translate(-50%,0)}
 
@@ -265,7 +278,7 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
         <div class="acoes">
           <a class="btn btn-prim" href="#projetos">Ver projetos
             <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-sec" href="mailto:lucasrocharxd@gmail.com">
+          <a class="btn btn-sec" href="mailto:lucasrocharxd@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio" data-contato>
             <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Fale comigo</a>
           <div class="redes">
             <a class="rede" href="https://www.linkedin.com/in/rochlucas" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
@@ -455,7 +468,7 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
         <h2 style="margin-top:10px">Vamos conversar?</h2>
         <p>Estou aberto a estágio e vaga júnior em desenvolvimento de software. Respondo por e-mail ou pelo LinkedIn.</p>
         <div class="acoes">
-          <a class="btn btn-prim" href="mailto:lucasrocharxd@gmail.com"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Enviar e-mail</a>
+          <a class="btn btn-prim" href="mailto:lucasrocharxd@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio" data-contato><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Enviar e-mail</a>
           <a class="btn btn-sec" href="https://www.linkedin.com/in/rochlucas" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn btn-sec" href="curriculo.pdf" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Baixar currículo</a>
         </div>
@@ -470,6 +483,20 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
 <dialog id="zoom" aria-label="Tela ampliada">
   <button type="button" class="fechar" id="fechar" aria-label="Fechar"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
   <figure style="margin:0"><img alt=""><figcaption></figcaption></figure>
+</dialog>
+<dialog id="contatoDlg" aria-labelledby="contatoTitulo">
+  <button type="button" class="fechar" data-fechar aria-label="Fechar"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <h2 id="contatoTitulo">Enviar e-mail</h2>
+  <p class="dlg-sub">Escolha por onde escrever, ou copie o endereço.</p>
+  <div class="email-caixa"><span>lucasrocharxd@gmail.com</span><button type="button" class="btn btn-prim" data-copiar>Copiar</button></div>
+  <div class="opcoes">
+    <a class="opcao" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucasrocharxd@gmail.com&amp;su=Contato%20pelo%20portf%C3%B3lio" target="_blank" rel="noopener">
+      <span class="ic"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span>Gmail<small>Abre no navegador</small></span><svg class="icon seta" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    <a class="opcao" href="https://outlook.live.com/mail/0/deeplink/compose?to=lucasrocharxd@gmail.com&amp;subject=Contato%20pelo%20portf%C3%B3lio" target="_blank" rel="noopener">
+      <span class="ic"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span>Outlook<small>Abre no navegador</small></span><svg class="icon seta" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    <a class="opcao" href="mailto:lucasrocharxd@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio">
+      <span class="ic"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><span>Aplicativo de e-mail<small>O do celular ou do computador</small></span><svg class="icon seta" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  </div>
 </dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -501,11 +528,18 @@ dialog .fechar{position:absolute;top:-14px;right:-14px;width:38px;height:38px;bo
 
   var toast=document.getElementById("toast"), tempo;
   function avisar(t){toast.textContent=t;toast.classList.add("ver");clearTimeout(tempo);tempo=setTimeout(function(){toast.classList.remove("ver");},2200);}
-  document.getElementById("copiar").addEventListener("click",function(){
-    var email="lucasrocharxd@gmail.com";
-    if(navigator.clipboard){navigator.clipboard.writeText(email).then(function(){avisar("E-mail copiado");},function(){location.href="mailto:"+email;});}
-    else location.href="mailto:"+email;
-  });
+  var EMAIL="lucasrocharxd@gmail.com";
+  function copiar(){
+    function reserva(){var t=document.createElement("textarea");t.value=EMAIL;t.setAttribute("readonly","");t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();var ok=false;try{ok=document.execCommand("copy");}catch(e){}t.remove();avisar(ok?"E-mail copiado":EMAIL);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(EMAIL).then(function(){avisar("E-mail copiado");},reserva);}else reserva();
+  }
+  var dlgC=document.getElementById("contatoDlg");
+  document.querySelectorAll("[data-contato]").forEach(function(a){a.addEventListener("click",function(e){if(!dlgC.showModal)return;e.preventDefault();dlgC.showModal();});});
+  dlgC.querySelector("[data-fechar]").addEventListener("click",function(){dlgC.close();});
+  dlgC.querySelector("[data-copiar]").addEventListener("click",copiar);
+  dlgC.addEventListener("click",function(e){if(e.target===dlgC)dlgC.close();});
+  dlgC.querySelectorAll(".opcao").forEach(function(o){o.addEventListener("click",function(){setTimeout(function(){dlgC.close();},150);});});
+  document.getElementById("copiar").addEventListener("click",copiar);
 
   var links=document.querySelectorAll(".menu a"), secoes=["projetos","experiencia","contato"].map(function(id){return document.getElementById(id);});
   function marcar(){var y=scrollY+innerHeight*0.35, atual="";secoes.forEach(function(s){if(s.offsetTop<=y)atual=s.id;});
